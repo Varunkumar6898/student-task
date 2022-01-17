@@ -5,13 +5,75 @@ df = pd.DataFrame({'studentid': ['1', '2', '3', '4'],
                    'degree': ['b.e', 'b.sc', 'b.ed', 'b.tech'],
                    'address': ['chennai', 'thiruvallur', 'madurai', 'thirunelveli']})
 writer = pd.ExcelWriter("C:\\Users\\ELCOT\\Desktop\\demo1.xlsx", engine='xlsxwriter')
-df.to_excel(writer, sheet_name='Sheet1')
+df.to_excel(writer, sheet_name='Sheet1', index=False)
 writer.save()
-student = int(input())
-if student == 1:
-    student_id = int(input("enter student id:"))
-    
-    student_name = (input("enter your name:"))
-    student_age = int(input("enter your age:"))
-    student_address = input("enter your address:")
-    student_degree = input("enter your degree:")
+print("Menu")
+print("1.add student")
+print("2.update student")
+print("3.list students")
+choice = int(input("enter your choice:"))
+if choice == 1:
+    studentid = int(input("enter your studentid:"))
+    age = int(input("enter your age:"))
+    studentname = input("enter your name:")
+    degree= input("enter your degree:")
+    address = input("enter your address:")
+df = pd.read_excel("C:\\Users\\ELCOT\\Desktop\\demo1.xlsx", header=None, names=['studentid', 'Age', 'studentname', 'degree', 'address'], nrows=44, na_values=["notavailable", "n.a"])
+df1 = df.loc[5] = ['', '', '', '', '']
+df.loc[5,'studentname']= studentname
+df.loc[5,'studentid']= studentid
+df.loc[5,'degree']= degree
+df.loc[5,'Age']= age
+df.loc[5,'address']= address
+print(df)
+#filt = (df['degree'] == 'b.e')
+#print(df[filt])
+if choice == 2 :
+    studentid1 = int(input("enter your studentid:"))
+    if studentid1 == 1:
+        age1 = int(input("enter your age:"))
+        studentname1 = input("enter your name:")
+        degree1 = input("enter your degree:")
+        address1 = input("enter your address:")
+        df.loc[1, ['Age', 'studentname', 'degree', 'address']]= [age1,studentname1,degree1,address1]
+        df = pd.read_excel("C:\\Users\\ELCOT\\Desktop\\demo1.xlsx", header=None,names=['studentid', 'Age', 'studentname', 'degree', 'address'],na_values=["notavailable", "n.a"])
+    elif studentid1 == 2:
+        age1 = int(input("enter your age:"))
+        studentname1 = input("enter your name:")
+        degree1 = input("enter your degree:")
+        address1 = input("enter your address:")
+        df.loc[2, ['Age', 'studentname', 'degree', 'address']]= [age1,studentname1,degree1,address1]
+        df = pd.read_excel("C:\\Users\\ELCOT\\Desktop\\demo1.xlsx", header=None,names=['studentid', 'Age', 'studentname', 'degree', 'address'],na_values=["notavailable", "n.a"])
+    elif studentid1 == 3:
+        age1 = int(input("enter your age:"))
+        studentname1 = input("enter your name:")
+        degree1 = input("enter your degree:")
+        address1 = input("enter your address:")
+        df.loc[3, ['Age', 'studentname', 'degree', 'address']]= [age1,studentname1,degree1,address1]
+        df = pd.read_excel("C:\\Users\\ELCOT\\Desktop\\demo1.xlsx", header=None,names=['studentid', 'Age', 'studentname', 'degree', 'address'],na_values=["notavailable", "n.a"])
+    elif studentid1 == 4:
+        age1 = int(input("enter your age:"))
+        studentname1 = input("enter your name:")
+        degree1 = input("enter your degree:")
+        address1 = input("enter your address:")
+        df.loc[4, ['Age', 'studentname', 'degree', 'address']]= [age1,studentname1,degree1,address1]
+        df = pd.read_excel("C:\\Users\\ELCOT\\Desktop\\demo1.xlsx", header=None,names=['studentid', 'Age', 'studentname', 'degree', 'address'],na_values=["notavailable", "n.a"])
+    elif studentid1 == 5 :
+        age1 = int(input("enter your age:"))
+        studentname1 = input("enter your name:")
+        degree1 = input("enter your degree:")
+        address1 = input("enter your address:")
+        df.loc[5, ['Age', 'studentname', 'degree', 'address']]= [age1,studentname1,degree1,address1]
+        df = pd.read_excel("C:\\Users\\ELCOT\\Desktop\\demo1.xlsx", header=None,names=['studentid', 'Age', 'studentname', 'degree', 'address'],na_values=["notavailable", "n.a"])
+    else :
+        print("studentid does not exists")
+elif choice==3 :
+    print("list of students ")
+    df = pd.read_excel("C:\\Users\\ELCOT\\Desktop\\demo1.xlsx", header=None,
+                       names=['studentid', 'Age', 'studentname', 'degree', 'address'],
+                       na_values=["notavailable", "n.a"])
+
+
+
+
+
